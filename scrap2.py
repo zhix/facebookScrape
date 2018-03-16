@@ -6,20 +6,19 @@ import datetime
 import csv
 import time 
 
-import gpiozero 
-from time import sleep 
+import sys
+
+# import gpiozero 
+# from time import sleep 
 
 
-# if you haven't had an app_id, sign up one here: https://developers.facebook.com/apps
-
-app_id = "1794678177523862"
+# if you haven't had a Facebook app_id, sign up one here: https://developers.facebook.com/apps
+app_id = "1794678177523862" 
 app_secret = "34e6aa4a65d9cdfc427a115eae2cbccd" # DO NOT SHARE WITH ANYONE!
-
 access_token = app_id + "|" + app_secret
 
 #page which analysis is done
 page_id = 'najibrazak'
-
 
 #to catch error (such as "HTTP Error 500 (Internal Error)") and try again after a few seconds, which usually works and to consolidates the data retrival code
 def request_until_succeed(url):
@@ -64,7 +63,7 @@ def getFacebookPageFeedData(page_id, access_token, num_statuses):
     data = json.loads(request_until_succeed(url))
     return data
     
-
+#to return the reactions of the latest FB post(s) - num_statuses = interested amount 
 def getReactionsForStatuses(page_id, access_token, num_statuses):
     reactionData = {}
     reaction_types = ["like", "love", "wow", "haha", "sad", "angry"] 
@@ -84,9 +83,6 @@ def getReactionsForStatuses(page_id, access_token, num_statuses):
     return reactionData
 
 # test_status = getFacebookPageFeed(page_id, access_token)
-# test_status = getFacebookPageFeedData(page_id, access_token, 1)["data"][0]["shares"]
-test_status = getReactionsForStatuses(page_id, access_token, 1) 
+# test_status = getFacebookPageFeedData(page_id, access_token, 1)
+test_status = getReactionsForStatuses(page_id, access_token, 2) 
 print (test_status)
-# print(json.dumps(test_status, indent=4, sort_keys=True))
-
-
