@@ -31,4 +31,4 @@ This script uses Requests library - make sure the library is installed before ha
 Use Facebook Graph API to test out the URL request > https://developers.facebook.com/tools/explorer/ 
 
 
-
+Try this next round: https://nbviewer.jupyter.org/github/ptwobrussell/Mining-the-Social-Web-2nd-Edition/blob/master/ipynb/Chapter%202%20-%20Mining%20Facebook.ipynb 
